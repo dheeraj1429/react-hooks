@@ -1,5 +1,13 @@
+import React from "react";
 import "./App.css";
-import ComponentA from "./examples/HOC/ComponentA";
+import {
+  counterSelector,
+  decrementCounter,
+  incrementCounter,
+  resetCounter,
+  setCounter,
+} from "./store/counterSlice";
+import { useAppSelector, useAppDispatch } from "./store/store";
 
 // Both DSA QUESTIONS
 // const b = [9, 8, 5, 11, 20]; // output. -> 11.
@@ -54,7 +62,18 @@ import ComponentA from "./examples/HOC/ComponentA";
 // findP(a, 9);
 
 function App() {
-  return <ComponentA />;
+  const counter = useAppSelector(counterSelector);
+  const dispatch = useAppDispatch();
+
+  return (
+    <React.Fragment>
+      <h1>Hello from react js {counter}</h1>
+      <button onClick={() => dispatch(incrementCounter())}>INC</button>
+      <button onClick={() => dispatch(decrementCounter())}>DEC</button>
+      <button onClick={() => dispatch(resetCounter())}>RESET</button>
+      <button onClick={() => dispatch(setCounter(10))}>SET</button>
+    </React.Fragment>
+  );
 }
 
 export default App;

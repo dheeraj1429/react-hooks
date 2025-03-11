@@ -1,3 +1,14 @@
+import { useMyContext } from "./contextApi";
+
 export function ComponentB() {
-  return <div>ComponentB</div>;
+  const data = useMyContext();
+
+  console.log("RENDERING COMPONENT B");
+
+  return (
+    <>
+      {/* <h1>ComponentB: {data.counter}</h1> */}
+      <h1>ComponentB: </h1>
+    </>
+  );
 }

@@ -1,16 +1,11 @@
 import React from "react";
 import "./App.css";
-import { ComponentA } from "./stateManagement/Context/ComponentA";
-import { MyContextProvider } from "./stateManagement/Context/contextApi";
-import { ComponentB } from "./stateManagement/Context/ComponentB";
+import ComponentA from "./Hoc/ComponentA";
 
 function App() {
   return (
     <React.Fragment>
-      <MyContextProvider>
-        <ComponentA />
-        <ComponentB />
-      </MyContextProvider>
+      <ComponentA isLoading={true} />
     </React.Fragment>
   );
 }

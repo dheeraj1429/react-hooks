@@ -1,12 +1,14 @@
-import React from "react";
 import "./App.css";
-import ComponentA from "./Hoc/ComponentA";
+
+import { Provider } from "react-redux";
+import { store } from "./stateManagement/Redux/store";
+import { ReduxComponent } from "./stateManagement/ReduxComponent";
 
 function App() {
   return (
-    <React.Fragment>
-      <ComponentA isLoading={true} />
-    </React.Fragment>
+    <Provider store={store}>
+      <ReduxComponent />
+    </Provider>
   );
 }
 
